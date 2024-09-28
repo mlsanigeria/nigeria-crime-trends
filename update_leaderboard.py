@@ -9,7 +9,7 @@ print("Updating the GitHub Leaderboard...")
 def initialize_api():
     # Define your GitHub repository and authentication token
     repository_owner = "mlsanigeria"
-    repository_name = "speak-to-docs"
+    repository_name = "nigeria-crime-trends"
     api_token = os.environ.get("API_TOKEN")
 
     # Define the GitHub API endpoint for pull requests
