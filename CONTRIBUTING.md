@@ -89,3 +89,6 @@ Welcome to the **Nigeria Crime Trends** project repository, organized by the Mic
 ## 🔗 Links to Resources
 
 1. [How to Do Your First Pull Request](https://youtu.be/nkuYH40cjo4?si=Cb6U2EKVR_Ns4RLw)
+2. [Microsoft ML for Beginners Course](https://github.com/microsoft/ML-For-Beginners)
+3. [Explore and analyze data with Python](https://learn.microsoft.com/en-us/training/modules/explore-analyze-data-with-python/?wt.mc_id=studentamb_271760)
+4. [Train a model in Azure Machine Learning](https://learn.microsoft.com/en-us/azure/machine-learning/tutorial-train-model?view=azureml-api-2?wt.mc_id=studentamb_271760)
