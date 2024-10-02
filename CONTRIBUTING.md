@@ -52,7 +52,12 @@ Welcome to the **Nigeria Crime Trends** project repository, organized by the Mic
 
    - This repository is dedicated to analyzing and predicting crime trends and fatalities in Nigeria. Review the **Issues** tab for tasks or suggestions you can tackle.
    - Go through the existing codebase, especially focusing on data cleaning, analysis, and modeling, and contribute to improving the prediction algorithms.
-   - You can check out [this notebook](https://github.com/Sammybams/HamoyeAI-Team-Theano-Capstone-Project/blob/master/experimentation/Full%20Analysis%20of%20Crime%20Dataset%20(1997%20to%202023%20March%2031st).ipynb), which contains a full analysis of crime trends across Africa. It provides a comprehensive approach that can guide or inspire your work as you analyze and predict crime trends and fatalities specifically for Nigeria.
+   - Create a folder in the root directory (nigeria-crime-trends) with following the naming convention:
+      - Folder Name: `experimentation_{GitHub_Username}`
+        
+      For example, if your GitHub username is `octocat`, your folder should be named `experimentation_octocat`.
+   - All your contributions that have to do with preprocessing, modeling and generally working with notebooks need to be under your folder as given in the repo as a sample and also in the instruction above. This will house all your contributions that relate directly to analysis, modeling, etc.
+   - You can also check out [this notebook](https://github.com/Sammybams/HamoyeAI-Team-Theano-Capstone-Project/blob/master/experimentation/Full%20Analysis%20of%20Crime%20Dataset%20(1997%20to%202023%20March%2031st).ipynb), which contains a full analysis of crime trends across Africa. It provides a comprehensive approach that can guide or inspire your work as you analyze and predict crime trends and fatalities specifically for Nigeria.
 
 4. **Commit and Push Your Changes:**
 
