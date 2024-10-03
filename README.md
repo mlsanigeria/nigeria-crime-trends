@@ -8,7 +8,8 @@ This challenge focuses on two main tracks:
 
 1. [**Speech-Enabled RAG Solution**](https://github.com/mlsanigeria/speak-to-docs): A project leveraging Microsoft Azure AI Services to build a Retrieval-Augmented Generation (RAG) solution where users can upload any document and interact with it through audio. The system allows for both audio input and audio responses, providing a seamless voice-based interaction with your documents.
 
-2. **Crime Trend and Fatalities Prediction in Nigeria**: This project aims to analyze crime trends in Nigeria and build one machine learning model to predict crime-related fatalities. Participants will perform a full analysis of the [dataset](https://github.com/mlsanigeria/nigeria-crime-trends/tree/main/data) obtained from [ACLED](https://acleddata.com/), including data cleaning, exploratory data analysis (EDA), and model building. An existing analysis at the African level can be used as a reference for participants. You can check out the notebook [here](https://github.com/Sammybams/HamoyeAI-Team-Theano-Capstone-Project/blob/master/experimentation/Full%20Analysis%20of%20Crime%20Dataset%20(1997%20to%202023%20March%2031st).ipynb) for ideas on how to conduct a comprehensive analysis for Nigeria.
+2. **Crime Trend and Fatalities Prediction in Nigeria**: This project aims to analyze crime trends in Nigeria and build one machine learning model to predict crime-related fatalities. Participants will perform a full analysis of the [dataset](https://github.com/mlsanigeria/nigeria-crime-trends/tree/main/data) obtained from [ACLED](https://acleddata.com/), including data cleaning, exploratory data analysis (EDA), and model building. An existing analysis at the African level can be used as a reference for participants. You can check out the notebook [here](https://github.com/Sammybams/HamoyeAI-Team-Theano-Capstone-Project/blob/master/experimentation/Full%20Analysis%20of%20Crime%20Dataset%20(1997%20to%202023%20March%2031st).ipynb) for ideas on how to conduct a comprehensive analysis for Nigeria. You can also check out the starter notebook [here](https://github.com/mlsanigeria/nigeria-crime-trends/blob/main/experimentation_%7BGitHub_Username%7D/starter_notebook.ipynb), which contains the starter code covering the data cleaning, data visualization and ML modelling stages of the project.
+_Copying the starter notebook verbatim is not allowed. It should simply be used as a guide to get started._
 
 ## **How to Participate**
 
@@ -16,7 +17,7 @@ This challenge focuses on two main tracks:
 
 2. **Fork the Repository**: Start by forking the repository to your GitHub account.
 
-3. **Contribute to the Speech-Enabled RAG Solution**: This repository is dedicated to developing the Speech-Enabled RAG Solution. Make your contributions by fixing bugs, adding new features, improving documentation, or addressing issues. Check out our [Contribution Guidelines](CONTRIBUTING.md).
+3. **Contribute to the Crime Trend and Fatalities Prediction Project**: This repository is dedicated to developing a machine learning model that can predict crime-related fatalities in Nigeria. Make your contributions by fixing bugs, adding new features, improving documentation, or addressing issues. Check out our [Contribution Guidelines](CONTRIBUTING.md).
 
 4. **Submit a Pull Request**: Share your contributions by submitting pull requests. Please follow our contribution guidelines outlined in the project's README.
 
