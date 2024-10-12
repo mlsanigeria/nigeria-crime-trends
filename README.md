@@ -38,7 +38,8 @@ Thank you to all our fantastic contributors for their hard work and dedication! 
 | 1 | 🥇 | <img src='https://avatars.githubusercontent.com/u/71222572?v=4' alt='Avatar' width='30' height='30'> | [Nalito](https://github.com/Nalito) | 3 |
 | 2 | 🥈 | <img src='https://avatars.githubusercontent.com/u/99600634?v=4' alt='Avatar' width='30' height='30'> | [Adelakun1999](https://github.com/Adelakun1999) | 1 |
 | 3 | 🥈 | <img src='https://avatars.githubusercontent.com/u/76260870?v=4' alt='Avatar' width='30' height='30'> | [AntareepDey](https://github.com/AntareepDey) | 1 |
-| 4 | 🥈 | <img src='https://avatars.githubusercontent.com/u/122483422?v=4' alt='Avatar' width='30' height='30'> | [Somyyaa](https://github.com/Somyyaa) | 1 |
+| 4 | 🥈 | <img src='https://avatars.githubusercontent.com/u/108756842?v=4' alt='Avatar' width='30' height='30'> | [Odeyiany2](https://github.com/Odeyiany2) | 1 |
+| 5 | 🥈 | <img src='https://avatars.githubusercontent.com/u/122483422?v=4' alt='Avatar' width='30' height='30'> | [Somyyaa](https://github.com/Somyyaa) | 1 |
 
 Thank you to all our fantastic contributors for their hard work and dedication!
 
