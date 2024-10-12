@@ -51,7 +51,7 @@ Welcome to the **Nigeria Crime Trends** project repository, organized by the Mic
 3. **Work on the Project:**
 
    - This repository is dedicated to analyzing and predicting crime trends and fatalities in Nigeria. Review the **Issues** tab for tasks or suggestions you can tackle.
-   - Go through the existing codebase, especially focusing on data cleaning, analysis, and modeling, and contribute to improving the prediction algorithms.
+   - Go through the existing codebase, especially focusing on data cleaning, analysis, and modeling, and contribute to improving the prediction algorithms. You can check out the starter notebook [here](https://github.com/mlsanigeria/nigeria-crime-trends/blob/main/experimentation_%7BGitHub_Username%7D/starter_notebook.ipynb) which covers the basic structure for data cleaning, data visualization and ML modelling stages of the project.
    - Create a folder in the root directory (nigeria-crime-trends) with following the naming convention:
       - Folder Name: `experimentation_{GitHub_Username}`
         
