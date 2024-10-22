@@ -1,6 +1,31 @@
 import streamlit as st
 import pandas as pd
 
+df = pd.read_csv("data\\Nigeria_1997-2024_Sep20.csv")
+
+#To dynamically store the unique sources
+ls = df["source"].unique()
+unique_sources = set()
+for val in ls:
+  if(val.find(';')==-1):
+    unique_sources.add(val)
+  else:
+      temp = val.split(';')
+      for i in range(len(temp)):
+        unique_sources.add(temp[i].strip())
+
+#Loading the data dynamically
+list_of_locations = df["location"].unique()
+list_of_source_scale = df["source_scale"].unique()
+list_of_event_type = df["event_type"].unique()
+list_of_sub_event_type = df["sub_event_type"].unique()
+list_of_disorder_type = df["disorder_type"].unique()
+list_of_admin_1 = df["admin1"].unique()
+list_of_admin_2 = df["admin2"].unique()
+list_of_actor1 = df["actor1"].unique()
+list_of_actor2 = df["actor2"].dropna().unique()
+
+
 #edit this for actual predictions
 def predict_fatalities(input_features):
     #placeholder
@@ -20,27 +45,19 @@ with st.form("user_inputs"):
         month = st.selectbox('Month', range(1, 13))
 
     with col1:
-        source = st.text_input('Source', 'Whatsapp')
+        source = st.multiselect('Source', unique_sources)
     with col2:
-        source_scale = st.selectbox('Source Scale', ['New media', 'National', 'National-Regional', 'Regional',
-       'New media-National', 'Local partner-International',
-       'Local partner-Other', 'Subnational-National',
-       'National-International', 'Subnational', 'New media-Regional',
-       'Other', 'International', 'Other-National', 'Subnational-Regional',
-       'Other-Subnational', 'Other-Regional', 'Other-New media',
-       'New media-International', 'Regional-International',
-       'Subnational-International', 'Other-International',
-       'New media-Subnational'])
+        source_scale = st.selectbox('Source Scale', list_of_source_scale)
 
     with col1:
-        location = st.text_input('Location', 'Bolori')
+        location = st.selectbox('Location', list_of_locations)
     with col2:
         geo_precision = st.selectbox('Geo Precision', [1, 2, 3])
 
     with col1:
-        actor1 = st.text_input('Actor 1', 'Protesters (Nigeria)')
+        actor1 = st.selectbox('Actor 1', list_of_actor1)
     with col2:
-        actor2 = st.text_input('Actor 2', '')
+        actor2 = st.selectbox('Actor 2', list_of_actor2, index=None)
 
     with col1:
         interaction = st.selectbox('Interaction', range(0, 100))
@@ -51,26 +68,14 @@ with st.form("user_inputs"):
         inter2 = st.selectbox('Inter2', range(0, 10))
 
     with col1:
-        admin1 = st.text_input('Admin1', 'Borno')
+        admin1 = st.selectbox('Admin1', list_of_admin_1)
     with col2:
-        admin2 = st.text_input('Admin2', 'Bolori')
+        admin2 = st.selectbox('Admin2',list_of_admin_2)
 
     with col1:
-        event_type = st.selectbox('Event Type', ['Protests', 'Strategic developments', 'Battles', 'Riots',
-       'Violence against civilians', 'Explosions/Remote violence'])
+        event_type = st.selectbox('Event Type', list_of_event_type)
     with col2:
-        sub_event_type = st.selectbox('Sub Event Type', ['Peaceful protest', 'Disrupted weapons use', 'Armed clash',
-       'Mob violence', 'Abduction/forced disappearance', 'Attack',
-       'Violent demonstration', 'Air/drone strike',
-       'Looting/property destruction', 'Protest with intervention',
-       'Agreement', 'Arrests', 'Change to group/activity', 'Other',
-       'Remote explosive/landmine/IED',
-       'Excessive force against protesters', 'Sexual violence',
-       'Suicide bomb', 'Shelling/artillery/missile attack',
-       'Non-state actor overtakes territory',
-       'Government regains territory', 'Grenade',
-       'Headquarters or base established',
-       'Non-violent transfer of territory'])
+        sub_event_type = st.selectbox('Sub Event Type', list_of_sub_event_type)
 
     with col1:
         time_precision = st.selectbox('Time Precision', [1, 2, 3])
@@ -78,8 +83,7 @@ with st.form("user_inputs"):
         civilian_targeting = st.selectbox('Civilian Targeting', [True, False])
 
     with col1:
-        disorder_type = st.selectbox('Disorder Type', ['Demonstrations', 'Strategic developments', 'Political violence',
-       'Political violence; Demonstrations'])
+        disorder_type = st.selectbox('Disorder Type', list_of_disorder_type)
     with col2:
         notes = st.text_area('Notes', 'Provide any specific notes here.')
 
