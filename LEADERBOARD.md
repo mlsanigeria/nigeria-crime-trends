@@ -17,6 +17,7 @@ Celebrate the remarkable contributions of our top contributors.
 | 8 | 🥈 | <img src='https://avatars.githubusercontent.com/u/71717433?v=4' alt='Avatar' width='30' height='30'> | [prayas7102](https://github.com/prayas7102) | 1 |
 | 9 | 🥈 | <img src='https://avatars.githubusercontent.com/u/122483422?v=4' alt='Avatar' width='30' height='30'> | [Somyyaa](https://github.com/Somyyaa) | 1 |
 | 10 | 🥈 | <img src='https://avatars.githubusercontent.com/u/121816155?v=4' alt='Avatar' width='30' height='30'> | [Soumyadeep-Basak](https://github.com/Soumyadeep-Basak) | 1 |
+| 11 | 🥈 | <img src='https://avatars.githubusercontent.com/u/49354382?v=4' alt='Avatar' width='30' height='30'> | [yusufokunlola](https://github.com/yusufokunlola) | 1 |
 
 A heartfelt **thank you** to all our fantastic contributors for their hard work and dedication! Together, we're making a difference in the open-source community.
 
