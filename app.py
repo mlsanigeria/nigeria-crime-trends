@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-df = pd.read_csv("data\\Nigeria_1997-2024_Sep20.csv")
+df = pd.read_csv("./data/Nigeria_1997-2024_Sep20.csv")
 
 #To dynamically store the unique sources
 ls = df["source"].unique()
