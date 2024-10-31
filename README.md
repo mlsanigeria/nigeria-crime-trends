@@ -43,8 +43,8 @@ Thank you to all our fantastic contributors for their hard work and dedication! 
 | 6 | 🥉 | <img src='https://avatars.githubusercontent.com/u/136433323?v=4' alt='Avatar' width='30' height='30'> | [hriteshMaikap](https://github.com/hriteshMaikap) | 1 |
 | 7 | 🥉 | <img src='https://avatars.githubusercontent.com/u/138898543?v=4' alt='Avatar' width='30' height='30'> | [MariaMahmood18](https://github.com/MariaMahmood18) | 1 |
 | 8 | 🥉 | <img src='https://avatars.githubusercontent.com/u/108756842?v=4' alt='Avatar' width='30' height='30'> | [Odeyiany2](https://github.com/Odeyiany2) | 1 |
-| 9 | 🥉 | <img src='https://avatars.githubusercontent.com/u/111193228?v=4' alt='Avatar' width='30' height='30'> | [oree-xx](https://github.com/oree-xx) | 1 |
-| 10 | 🥉 | <img src='https://avatars.githubusercontent.com/u/71717433?v=4' alt='Avatar' width='30' height='30'> | [prayas7102](https://github.com/prayas7102) | 1 |
+| 9 | 🥉 | <img src='https://avatars.githubusercontent.com/u/106831225?v=4' alt='Avatar' width='30' height='30'> | [OdolokorEunice](https://github.com/OdolokorEunice) | 1 |
+| 10 | 🥉 | <img src='https://avatars.githubusercontent.com/u/111193228?v=4' alt='Avatar' width='30' height='30'> | [oree-xx](https://github.com/oree-xx) | 1 |
 
 Thank you to all our fantastic contributors for their hard work and dedication!
 
