@@ -76,7 +76,8 @@ def preprocess_data(df):
 
 
 # specify the data path and implement the wrangle function to clean the data
-data_path = "../data/Nigeria_1997-2024_Sep20.csv"
+# data_path = "../data/Nigeria_1997-2024_Sep20.csv"
+data_path = "https://raw.githubusercontent.com/yusufokunlola/nigeria-crime-trends/main/data/Nigeria_1997-2024_Sep20.csv"
 df = wrangle_data(data_path)
 
 # preprocess data
@@ -86,7 +87,7 @@ df_processed, label_encoders, category_mappings = preprocess_data(df)
 df = df_processed.copy()
 
 # Specify the model filename and path
-model_filename = os.path.join('./pickled_model', 'finalized_model.sav')
+model_filename = os.path.join('experimentation_yusufokunlola/pickled_model', 'finalized_model.sav')
 
 # Load the pickled Gradient Boosting Regressor model
 model = pickle.load(open(model_filename,'rb'))
