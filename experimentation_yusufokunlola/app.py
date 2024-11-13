@@ -76,7 +76,7 @@ def preprocess_data(df):
 
 
 # specify the data path and implement the wrangle function to clean the data
-data_path = "../data/Nigeria_1997-2024_Sep20.csv"
+data_path = "https://raw.githubusercontent.com/mlsanigeria/nigeria-crime-trends/main/data/Nigeria_1997-2024_Sep20.csv"
 df = wrangle_data(data_path)
 
 # preprocess data
