@@ -40,6 +40,9 @@ def wrangle_data(filepath):
     # Replace NaN values in 'civilian_targeting' with 'Not Civilian targeting' as it was recorded that it can be blank
     df['civilian_targeting'] = df['civilian_targeting'].fillna('Not Civilian targeting')
 
+    # Rename values in 'civilian_targeting' with 'Yes' or 'No'
+    df['civilian_targeting'] = df['civilian_targeting'].replace({'Not Civilian targeting': 'No', 'Civilian targeting': 'Yes'})
+
     # The row 'admin2' or 'admin1' had 1 missing value and had to be dropped because the location was the Gulf of Guinea; international waters
     df = df.dropna(subset=['admin2', 'admin1'])
     
@@ -95,20 +98,12 @@ model = pickle.load(open(model_filename,'rb'))
 st.sidebar.title('App Information')
 st.sidebar.write("""
     This application predicts the number of fatalities based on the following features:
-    - Year
-    - Month
-    - Time Precision
+    - Time
     - Disorder Type
     - Event Type
-    - Sub Event Type
-    - Actor 1 and Actor 2
-    - Inter 1 and Inter 2 
-    - Interaction
-    - Civilian Targeting
-    - Admin 1 and Admin 2
+    - Involved Parties
     - Location
-    - Geo Precision
-    - Source and Source Scale
+    - Event Reporter
 """)
 st.sidebar.write("Please enter the features on the main page to get the number of fatalities recorded.")
 
@@ -120,6 +115,19 @@ st.text('')
 st.text('')
 st.sidebar.markdown('`Code:` [GitHub](https://github.com/mlsanigeria/nigeria-crime-trends/)')
 
+# Time Precision mapping
+time_mapping = {
+    1: 'Exact Date',
+    2: 'Estimated Week',
+    3: 'Estimated Month'
+}
+
+# Geo-Precision mapping
+geo_mapping = {
+    1: 'Exact Location',
+    2: 'Near the Town',
+    3: 'Regional Area'
+}
 
 # Month mapping
 month_mapping = {
@@ -137,45 +145,77 @@ month_mapping = {
     12: 'December'
 }
 
-# Unique values for various features
-years = df['year'].unique().tolist()
-interactions = df['interaction'].unique().tolist()
-time_precisions = df['time_precision'].unique().tolist()
-inter1s = df['inter1'].unique().tolist()
-inter2s = df['inter2'].unique().tolist()
-geo_precisions = df['geo_precision'].unique().tolist()
+#  Inter1 mapping
+inter1_mapping = {
+    1: 'State Forces',
+    2: 'Rebel Groups',
+    3: 'Political Militias',
+    4: 'Identity Militias',
+    5: 'Rioters',
+    6: 'Protesters',
+    7: 'Civilians',
+    8: 'External/Other Forces'    
+}
 
+#  Inter2 mapping
+inter2_mapping = {
+    0: 'Nil',
+    1: 'State Forces',
+    2: 'Rebel Groups',
+    3: 'Political Militias',
+    4: 'Identity Militias',
+    5: 'Rioters',
+    6: 'Protesters',
+    7: 'Civilians',
+    8: 'External/Other Forces'    
+}
 
 # Create two columns for the input features
 col1, col2 = st.columns(2)
 
 # Input features in two columns
 with col1:
-    year = st.selectbox('Year', options=years)
+    year = st.selectbox('Year', options=df['year'].unique().tolist())
     month = st.selectbox('Month', options=list(month_mapping.values()))
-    time_precision = st.selectbox('Time Precision', options=time_precisions)
+    time = st.selectbox('Recorded Date Accuracy', options=list(time_mapping.values()))
     disorder_type = st.selectbox('Disorder Type', options=list(category_mappings['disorder_type'].keys()))
     event_type = st.selectbox('Event Type', options=list(category_mappings['event_type'].keys()))
-    sub_event_type = st.selectbox('Sub Event Type', options=list(category_mappings['sub_event_type'].keys()))
-    actor1 = st.selectbox('Actor 1', options=list(category_mappings['actor1'].keys()))
-    inter1 = st.selectbox('Inter 1', options=inter1s)
-    actor2 = st.selectbox('Actor 2', options=list(category_mappings['actor2'].keys()))  
+    sub_event_type = st.selectbox('Event Subcategory', options=list(category_mappings['sub_event_type'].keys()))
+    actor1 = st.selectbox('Primary Involved Party', options=list(category_mappings['actor1'].keys()))
+    inter1 = st.selectbox('Primary Group Affiliation', options=list(inter1_mapping.values()))
+    actor2 = st.selectbox('Secondary Involved Party', options=list(category_mappings['actor2'].keys()))  
     
     
 with col2:
-    inter2 = st.selectbox('Inter 2', options=inter2s) 
-    interaction = st.selectbox('Interaction', options=interactions)
+    inter2 = st.selectbox('Secondary Group Affiliation', options=list(inter2_mapping.values()))
     civilian_targeting = st.selectbox('Civilian Targeting', options=list(category_mappings['civilian_targeting'].keys()))
-    admin1 = st.selectbox('Admin 1', options=list(category_mappings['admin1'].keys()))    
-    admin2 = st.selectbox('Admin 2', options=list(category_mappings['admin2'].keys()))
-    location = st.selectbox('Location', options=list(category_mappings['location'].keys()))
-    geo_precision = st.selectbox('Geo Precision', options=geo_precisions)
-    source = st.selectbox('Source', options=list(category_mappings['source'].keys()))
-    source_scale = st.selectbox('Source Scale', options=list(category_mappings['source_scale'].keys()))
+    
+    # Dynamic selection of admin1, admin2 and location
+    admin1_options = list(category_mappings['admin1'].keys())
+    selected_admin1 = st.selectbox("State", options=admin1_options)
 
+    # Filter admin2 based on selected admin1 and map it with category mappings
+    filtered_admin2_codes = df[df['admin1'] == category_mappings['admin1'][selected_admin1]]['admin2'].unique()
+    filtered_admin2 = [key for key, value in category_mappings['admin2'].items() if value in filtered_admin2_codes]
+    selected_admin2 = st.selectbox("Local Government Area", options=filtered_admin2)
 
-# Convert selected month back to its corresponding numerical value
+    # Filter location based on selected admin2 and map it with category mappings
+    filtered_location_codes = df[
+        (df['admin1'] == category_mappings['admin1'][selected_admin1]) & 
+        (df['admin2'] == category_mappings['admin2'][selected_admin2])]['location'].unique()
+    filtered_location = [key for key, value in category_mappings['location'].items() if value in filtered_location_codes]
+    selected_location = st.selectbox("Town", options=filtered_location)
+    
+    geo = st.selectbox('Location Precision', options=list(geo_mapping.values()))
+    source = st.selectbox('Event Reporter', options=list(category_mappings['source'].keys()))
+    source_scale = st.selectbox('Source Coverage', options=list(category_mappings['source_scale'].keys()))
+
+# Convert mapped columns back to its corresponding numerical value
+time_precision = [key for key, value in time_mapping.items() if value == time][0]
 month_encoded = [key for key, value in month_mapping.items() if value == month][0]
+inter1_encoded = [key for key, value in inter1_mapping.items() if value == inter1][0]
+inter2_encoded = [key for key, value in inter2_mapping.items() if value == inter2][0]
+geo_precision = [key for key, value in geo_mapping.items() if value == geo][0]
 
 # Encoding categorical features
 disorder_type_encoded = category_mappings['disorder_type'][disorder_type]
@@ -184,12 +224,15 @@ sub_event_type_encoded = category_mappings['sub_event_type'][sub_event_type]
 actor1_encoded = category_mappings['actor1'][actor1]
 actor2_encoded = category_mappings['actor2'][actor2]
 civilian_targeting_encoded = category_mappings['civilian_targeting'][civilian_targeting]
-admin1_encoded = category_mappings['admin1'][admin1]
-admin2_encoded = category_mappings['admin2'][admin2]
-location_encoded = category_mappings['location'][location]
+admin1_encoded = category_mappings['admin1'][selected_admin1]
+admin2_encoded = category_mappings['admin2'][selected_admin2]
+location_encoded = category_mappings['location'][selected_location]
 source_encoded = category_mappings['source'][source]
 source_scale_encoded = category_mappings['source_scale'][source_scale]
 
+# calculate the interaction and format as integer (e.g., if inter1=6 and inter2=0, interaction will be 60)
+# this is hidden from the user interface 
+interaction = int(f"{inter1_encoded}{inter2_encoded}")
 
 # Create the input DataFrame for prediction in the specified order
 input_data = pd.DataFrame({
@@ -200,9 +243,9 @@ input_data = pd.DataFrame({
     'event_type': [event_type_encoded],
     'sub_event_type': [sub_event_type_encoded],
     'actor1': [actor1_encoded],
-    'inter1': [inter1], 
+    'inter1': [inter1_encoded], 
     'actor2': [actor2_encoded],
-    'inter2': [inter2],
+    'inter2': [inter2_encoded],
     'interaction': [interaction],
     'civilian_targeting': [civilian_targeting_encoded],
     'admin1': [admin1_encoded],
