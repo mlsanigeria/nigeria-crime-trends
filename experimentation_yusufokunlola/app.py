@@ -109,7 +109,7 @@ st.sidebar.write("Please enter the features on the main page to get the number o
 
 st.text('')
 st.text('')
-st.sidebar.write("To learn more about the features, consult the [ACLED Codebook](https://acleddata.com/acleddatanew/wp-content/uploads/dlm_uploads/2024/10/ACLED-Codebook-2024-7-Oct.-2024.pdf)")
+st.sidebar.write("To learn more about the features, consult the [ACLED Codebook](https://acleddata.com/acleddatanew/wp-content/uploads/dlm_uploads/2024/10/ACLED-Codebook-2024-7-Oct.-2024.pdf).")
 
 st.text('')
 st.text('')
